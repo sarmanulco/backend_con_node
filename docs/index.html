@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Curso de backend con node</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -46,7 +46,83 @@
 						<p>Aprenderemos las siguientes cosas...</p>
 					</section>
 					<section>
-						<h2>Configurar el ordenador</h2>
+						<h1>Librerias que vamos a utilizar</h1>
+						<pre><code class="hljs bash">
+npm i express #Instalar expressjs
+# Instalar e inciar con babel
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save @babel/polyfill
+npm install @babel/core @babel/register --save-dev
+npm install --save-dev @babel/preset-env
+						</code></pre>
+					</section>
+					<section>
+						<h1>Hola mundo con expressjs</h1>
+						<pre><code class="hljs javascript">
+const express = require('express')
+const app = express()
+
+app.use((req, res) => res.end('<h1>Hola mundo</h1>'))
+
+app.listen(8080, () => {
+	console.log("Escuchando por el puerto 8080");
+})
+						</code></pre>
+					</section>
+					<section>
+						<h1>Refactorizar para usar BabelJS</h1>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Métodos HTTP</h1>
+						<p>Hay 4 métodos HTTP</p>
+						<ul>
+							<li class="fragment">
+								<strong>POST</strong>: Se utiliza para crear un recurso
+							</li>
+							<li class="fragment">
+								<strong>GET</strong>: Se utiliza para consultar uno o varios recursos
+							</li>
+							<li class="fragment">
+								<strong>PUT</strong>: Se utiliza para modificar uno o varios recursos
+							</li>
+							<li class="fragment">
+								<strong>DELETE</strong>: Se utiliza para eliminar uno o varios recursos
+							</li>
+						</ul>
+						<p class="fragment">
+							<a target="_blank" href="https://www.getpostman.com/downloads/">Postman</a> nos sirve para probar nuestras apis
+						</p>
+					</section>
+					<section>
+						<h1>Método GET</h1>
+						<ul>
+							<li class="fragment">Función INDEX: Obtener todos los elementos de un recurso</li>
+							<li class="fragment">Función SHOW: Obtener un elemento de un recurso</li>
+							<li class="fragment">Función EDIT: Obtener el formulario de creación de un recurso</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Otros métodos</h1>
+						<ul>
+							<li class="fragment">Función create (POST): Es la función en la que implementamos la creación de un recurso</li>
+							<li class="fragment">Función update (PUT): Es la funcion en la que implementamos la actualización de un recurso</li>
+							<li class="fragment">Función destroy (DELETE): Es la función en la que implementamos la destrucción de un recurso</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Review de un controlador</h1>
+						<pre><code class="hljs javascript">
+class ArticleController {
+	edit(req, res, next) {}           // Método get
+	create(req, res, next) {}         // Método post
+	index(req, res, next) {}          // Método get
+	show(req, res, next) {}           // Método get
+	update(req, res, next) {}         // Método put
+	destroy(req, res, next) {}        // Método delete
+}
+						</code></pre>
 					</section>
 				</section>
 			</div>
